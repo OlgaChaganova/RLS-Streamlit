@@ -103,7 +103,7 @@ if uploaded_file is not None:
 st.header('**2) Задайте параметры модели**')
 st.write('Модель для прогнозирования временного ряда имеет вид:')
 r'''
-$$\hat{y_i} = \beta_0 + \beta_1 i + \beta_2 i^2 + ... + \beta_k i^k$$
+$$\hat{y_t} = \beta_0 + \beta_1 t + \beta_2 t^2 + ... + \beta_k t^k$$
 '''
 
 k = st.slider("Степень полинома", min_value=1, max_value=10, value=3, step=1)
