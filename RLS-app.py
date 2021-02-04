@@ -101,9 +101,9 @@ if uploaded_file is not None:
 
 
 st.header('**2) Задайте параметры модели**')
-
+st.write('Модель для прогнозирования временного ряда имеет вид:')
 r'''
-$$x^2 = \frac{n^2+n}{10}$$
+$$\hat{y_i} = \frac{n^2+n}{10}$$
 '''
 
 k = st.slider("Степень полинома", min_value=1, max_value=10, value=3, step=1)
