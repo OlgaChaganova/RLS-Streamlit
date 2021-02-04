@@ -94,6 +94,7 @@ if uploaded_file is not None:
   st.pyplot()
 
 y = np.array(y)
+test_size = len(y)
 
 st.header('**2) Задайте параметры модели**')
 k = st.slider("Степень полинома", min_value=1, max_value=10, value=3, step=1)
