@@ -31,7 +31,6 @@ if uploaded_file is not None:
   st.dataframe(np.array(y).reshape(1, len(y)))
   
   st.subheader('График временного ряда')
-  st.write("График временного ряда", width=1500, height=1500)
   ax = plt.plot(list(range(len(y))), y.iloc[:,0])
   st.pyplot()
 
