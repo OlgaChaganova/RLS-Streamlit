@@ -81,7 +81,7 @@ $$\hat{y_t} = \beta_0 + \beta_1 t + \beta_2 t^2 + ... + \beta_k t^k$$
 '''
 st.write('где')
 r'''
-$$\beta_0, \beta_1, \beta_2, ..., \beta_k
+$$\beta_0, \beta_1, \beta_2, ..., \beta_k$$
 '''
 st.write('- коэффициенты модели, которые оцениваются с помощью РМНК.')
 
