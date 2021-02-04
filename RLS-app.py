@@ -87,6 +87,9 @@ y = pd.DataFrame() # датафрейм для исходных данных
 if uploaded_file is not None:
   y = pd.read_csv(uploaded_file, header=None, decimal=',', sep=' ')
   y.columns = ['value']
+  y = y.value
+  test_size = len(y)
+    
   st.subheader('Таблица с исходными данными')
   st.dataframe(np.array(y).reshape(1, len(y)))
   
@@ -94,8 +97,6 @@ if uploaded_file is not None:
   ax = plt.plot(list(range(len(y))), y)
   st.pyplot()
 
-y = y.value
-test_size = len(y)
 
 st.header('**2) Задайте параметры модели**')
 k = st.slider("Степень полинома", min_value=1, max_value=10, value=3, step=1)
