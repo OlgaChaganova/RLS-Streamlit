@@ -103,7 +103,7 @@ st.header('**2) Задайте параметры модели**')
 k = st.slider("Степень полинома", min_value=1, max_value=10, value=3, step=1)
 lam = st.number_input('Начальное значение коэффициента обучения', min_value=0.0, max_value=1.0, value=0.9)
 delta = st.number_input('Дельта', min_value=0, max_value=100, value=10)
-num_obs = st.number_input('Число последних наблюдений, отображаемых на графике', min_value=0, max_value=test_size, value=test_size/2)
+num_obs = st.number_input('Число последних наблюдений, отображаемых на графике', min_value=0, max_value=test_size, value=5)
 
 if st.button('Составить прогноз'):
 
