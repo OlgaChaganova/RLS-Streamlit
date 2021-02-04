@@ -101,6 +101,11 @@ if uploaded_file is not None:
 
 
 st.header('**2) Задайте параметры модели**')
+
+r'''
+$$x^2 = \frac{n^2+n}{10}$$
+'''
+
 k = st.slider("Степень полинома", min_value=1, max_value=10, value=3, step=1)
 lam = st.number_input('Начальное значение коэффициента обучения', min_value=0.0, max_value=1.0, value=0.9)
 delta = st.number_input('Дельта', min_value=0, max_value=100, value=10)
