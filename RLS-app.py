@@ -26,7 +26,7 @@ features = list() #признаки
 y = pd.DataFrame() # датафрейм для исходных данных
 
 if uploaded_file is not None:
-  y = pd.read_csv(uploaded_file)
+  y = pd.read_csv(uploaded_file, header=None, decimal=',', sep=' ')
   st.subheader('Таблица с исходными данными')
   st.write(np.array(y).reshape(1, len(y)))
 
