@@ -106,7 +106,7 @@ pred_x = []
 pred_y = []
 pred_error = []
 for i in range(test_size):
-    x = np.matrix(np.zeros((1,num_vars)))
+    x = np.matrix(np.zeros((1,k)))
     for j in range(num_vars):
         x[0,j] = i**j 
     pred_x.append(i)
