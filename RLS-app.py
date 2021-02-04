@@ -23,18 +23,16 @@ st.write('*Данные могут иметь расширение csv или tx
 uploaded_file = st.file_uploader("Выберите файл", ["csv","txt"])
 
 features = list() #признаки
-df = pd.DataFrame() # датафрейм для исходных данных
+y = pd.DataFrame() # датафрейм для исходных данных
 
 if uploaded_file is not None:
-  df = pd.read_csv(uploaded_file)
+  y = pd.read_csv(uploaded_file)
   st.subheader('Таблица с исходными данными')
-  st.write(df)
+  st.write(np.array(y).reshape(1, len(y)))
 
 st.write("График временного ряда")
-ax = plt.plot(list(range(1,len(df))), df.iloc[:,0])
+ax = plt.plot(list(range(len(y))), y.iloc[:,0])
 _ = plt.title("График временного ряда")
-plt.legend()
-plt.show()
 st.pyplot()
 
 st.header('**2) Укажите степень полинома**')
