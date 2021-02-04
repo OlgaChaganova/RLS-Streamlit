@@ -28,12 +28,13 @@ y = pd.DataFrame() # датафрейм для исходных данных
 if uploaded_file is not None:
   y = pd.read_csv(uploaded_file, header=None, decimal=',', sep=' ')
   st.subheader('Таблица с исходными данными')
-  st.write(np.array(y).reshape(1, len(y)))
+  st.write(np.array(y).reshape(1, len(y)), height=50, width=300)
+  
+  st.write("График временного ряда")
+  ax = plt.plot(list(range(len(y))), y.iloc[:,0])
+  _ = plt.title("График временного ряда")
+  st.pyplot()
 
-st.write("График временного ряда")
-ax = plt.plot(list(range(len(y))), y.iloc[:,0])
-_ = plt.title("График временного ряда")
-st.pyplot()
 
 st.header('**2) Укажите степень полинома**')
 k = st.slider("Степень полинома", min_value=1, max_value=10, value=3, step=1)
