@@ -134,6 +134,7 @@ if st.button('Составить прогноз'):
     st.pyplot()
     
     st.subheader('**Коэффициенты модели**')
-    st.write(LS.w)
+    coeff = list(float(LS.w[i]) for i in range(len(LS.w)))
+    st.write(coeff)
     
 
