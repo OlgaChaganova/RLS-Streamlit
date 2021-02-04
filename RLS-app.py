@@ -86,20 +86,22 @@ y = pd.DataFrame() # датафрейм для исходных данных
 
 if uploaded_file is not None:
   y = pd.read_csv(uploaded_file, header=None, decimal=',', sep=' ')
+  y.columns = ['value']
   st.subheader('Таблица с исходными данными')
   st.dataframe(np.array(y).reshape(1, len(y)))
   
   st.subheader('График временного ряда')
-  ax = plt.plot(list(range(len(y))), y.iloc[:,0])
+  ax = plt.plot(list(range(len(y))), y)
   st.pyplot()
 
-y = np.array(y)
+y = y.value
 test_size = len(y)
 
 st.header('**2) Задайте параметры модели**')
 k = st.slider("Степень полинома", min_value=1, max_value=10, value=3, step=1)
 lam = st.number_input('Начальное значение коэффициента обучения', min_value=0.0, max_value=1.0, value=0.9)
 delta = st.number_input('Дельта', min_value=0, max_value=100, value=10)
+num_obs = st.number_input('Число последних наблюдений, отображаемых на графике', min_value=0, max_value=test_size, value=test_size/2)
 
 if st.button('Составить прогноз'):
 
@@ -115,8 +117,8 @@ if st.button('Составить прогноз'):
         pred_y.append(float(x*LS.w))
         pred_error.append(LS.get_error())
         LS.add_obs(x.T,y[i])
-    ax = plt.plot(pred_x[50:], pred_y[50:],label='predicted')
-    _ = plt.plot(pred_x[50:],y[50:],label='actual')
+    ax = plt.plot(pred_x[num_obs:], pred_y[num_obs:],label='predicted')
+    _ = plt.plot(pred_x[num_obs:],y[num_obs:],label='actual')
     _ = plt.title("SPY closing price, 8/30/16 - 7/11/18")
     plt.legend()
     st.pyplot()
