@@ -135,6 +135,7 @@ if st.button('Составить прогноз'):
     
     st.subheader('**Коэффициенты модели**')
     coeff = list(float(LS.w[i]) for i in range(len(LS.w)))
-    st.write(coeff)
+    coeff_df = pd.DataFrame({'Value':coeff})
+    st.write(coeff_df)
     
 
