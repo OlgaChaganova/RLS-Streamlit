@@ -82,6 +82,7 @@ st.write('*Данные могут иметь расширение csv или tx
 uploaded_file = st.file_uploader("Выберите файл", ["csv","txt"])
 
 features = list() #признаки
+test_size = 10
 y = pd.DataFrame() # датафрейм для исходных данных
 
 if uploaded_file is not None:
