@@ -133,5 +133,7 @@ if st.button('Составить прогноз'):
     plt.legend()
     st.pyplot()
     
-st.subheader('**Коэффициенты модели**')
-st.write(LS.w)
+    st.subheader('**Коэффициенты модели**')
+    st.write(LS.w)
+    
+
