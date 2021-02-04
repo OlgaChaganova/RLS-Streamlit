@@ -101,20 +101,22 @@ k = st.slider("Степень полинома", min_value=1, max_value=10, valu
 lam = st.number_input('Начальное значение коэффициента обучения', min_value=0.0, max_value=1.0, value=0.9)
 delta = st.number_input('Дельта', min_value=0, max_value=100, value=10)
 
-LS = RLS(k, lam, delta)
-pred_x = []
-pred_y = []
-pred_error = []
-for i in range(test_size):
-    x = np.matrix(np.zeros((1,k)))
-    for j in range(k):
-        x[0,j] = i**j 
-    pred_x.append(i)
-    pred_y.append(float(x*LS.w))
-    pred_error.append(LS.get_error())
-    LS.add_obs(x.T,y[i])
-ax = plt.plot(pred_x[50:], pred_y[50:],label='predicted')
-_ = plt.plot(pred_x[50:],y[50:],label='actual')
-_ = plt.title("SPY closing price, 8/30/16 - 7/11/18")
-plt.legend()
-st.pyplot()
+if st.button('Составить прогноз'):
+
+    LS = RLS(k, lam, delta)
+    pred_x = []
+    pred_y = []
+    pred_error = []
+    for i in range(test_size):
+        x = np.matrix(np.zeros((1,k)))
+        for j in range(k):
+            x[0,j] = i**j 
+        pred_x.append(i)
+        pred_y.append(float(x*LS.w))
+        pred_error.append(LS.get_error())
+        LS.add_obs(x.T,y[i])
+    ax = plt.plot(pred_x[50:], pred_y[50:],label='predicted')
+    _ = plt.plot(pred_x[50:],y[50:],label='actual')
+    _ = plt.title("SPY closing price, 8/30/16 - 7/11/18")
+    plt.legend()
+    st.pyplot()
