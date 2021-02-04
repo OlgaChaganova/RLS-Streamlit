@@ -86,12 +86,12 @@ test_size = 10
 y = pd.DataFrame() # датафрейм для исходных данных
 
 if uploaded_file is not None:
-  y = pd.read_csv(uploaded_file, header=None, decimal=',', sep=' ')
+  y = pd.read_csv(uploaded_file, header=None, decimal='.', sep=';')
   y.columns = ['value']
   y = y.value
   test_size = len(y)
     
-  st.subheader('Таблица с исходными данными')
+  st.subheader('Значения исходного временного ряда')
   st.dataframe(np.array(y).reshape(1, len(y)))
   
 #   st.subheader('График временного ряда')
