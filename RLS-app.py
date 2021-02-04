@@ -8,8 +8,6 @@ import seaborn as sns
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-
-
 class RLS:
     def __init__(self, num_vars, lam, delta):
         '''
@@ -55,7 +53,6 @@ class RLS:
         for i in range(len(X)):
             x = np.transpose(np.matrix(X[i]))
             self.add_obs(x,y[i])
-
 
     def get_error(self):
         '''
@@ -110,8 +107,8 @@ k = st.slider("Степень полинома (k)", min_value=1, max_value=10, 
 lam = st.number_input('Значение коэффициента адаптации', min_value=0.0, max_value=1.0, value=0.9)
 # delta = st.number_input('Дельта', min_value=0, max_value=100, value=10)
 num_obs = st.number_input('Число последних наблюдений, отображаемых на графике', min_value=0, max_value=test_size, value=5)
-
 delta = 10
+st.header('**3) Прогнозирование**')
 if st.button('Составить прогноз'):
 
     LS = RLS(k, lam, delta)
@@ -131,3 +128,6 @@ if st.button('Составить прогноз'):
     _ = plt.title("Прогнозирование с помощью РМНК")
     plt.legend()
     st.pyplot()
+    
+st.subheader('**Коэффициенты модели**')
+
