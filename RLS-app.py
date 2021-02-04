@@ -132,6 +132,11 @@ if st.button('Составить прогноз'):
     plt.legend()
     st.pyplot()
     
+    ax2 = plt.plot(pred_x[-num_obs:], pred_error[-num_obs:])
+    _ = plt.title("Ошибки модели")
+    plt.legend()
+    st.pyplot()
+    
     st.subheader('**Коэффициенты модели**')
     coeff = list(float(LS.w[i]) for i in range(len(LS.w)))
     coeff_df = pd.DataFrame({'Value':coeff})
