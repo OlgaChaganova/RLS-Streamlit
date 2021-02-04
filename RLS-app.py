@@ -27,9 +27,8 @@ df = pd.DataFrame() # датафрейм для исходных данных
 
 if uploaded_file is not None:
   df = pd.read_csv(uploaded_file)
-  df = np.array(df)
   st.subheader('Таблица с исходными данными')
-  st.write(df.reshape(1, df.shape[1]))
+  st.write(df)
 
 st.write("График временного ряда")
 ax = plt.plot(list(range(1,len(df))), df.iloc[:,0])
