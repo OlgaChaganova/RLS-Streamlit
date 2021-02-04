@@ -96,7 +96,6 @@ if uploaded_file is not None:
   y.columns = ['value']
   y = y.value
   test_size = len(y)
-    
   st.subheader('Значения исходного временного ряда')
   st.dataframe(np.array(y).reshape(1, len(y)))
   
