@@ -28,7 +28,7 @@ y = pd.DataFrame() # датафрейм для исходных данных
 if uploaded_file is not None:
   y = pd.read_csv(uploaded_file, header=None, decimal=',', sep=' ')
   st.subheader('Таблица с исходными данными')
-  st.write(np.array(y).reshape(1, len(y)), height=50, width=300)
+  st.write(np.array(y).reshape(1, len(y)), height=150, width=300)
   
   st.write("График временного ряда")
   ax = plt.plot(list(range(len(y))), y.iloc[:,0])
