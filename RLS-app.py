@@ -150,7 +150,7 @@ if st.button('Составить прогноз'):
                             'MAE' : round(mean_absolute_error(y, pred_y), 5)}, index=['Значение'])
 
     st.table(metrics)
-    st.write('*MSE (Mean Square Error)* - среднеквадратическая ошибка;')
+    st.write('*MSE (Mean Square Error)* - среднеквадратическая ошибка;') 
     st.write('*RMSE (Root Mean Square Error)* - корень из среднеквадратической ошибки;')
     st.write('*ME (Max Error)* - максимальная ошибка;')
     st.write('*MAE (Mean Absolute Error)* - средняя абсолютная ошибка.')
