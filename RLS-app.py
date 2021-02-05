@@ -71,7 +71,7 @@ class RLS:
         return float(self.w.T*x)
 
 """
-# Прогнозирование временных рядов с помощью РМНК
+# Прогнозирование временных рядов с помощью рекуррентного метода наименьших квадратов
 Рекуррентный метод наименьших квадратов – это итеративная процедура оценки параметров регрессионной модели, позволяющая уточнять оценки по мере получения новых данных.
 """
 
@@ -97,18 +97,13 @@ if uploaded_file is not None:
   y.columns = ['value']
   y = y.value
   test_size = len(y)
-  st.subheader('Значения исходного временного ряда')
-  st.dataframe(np.array(y).reshape(1, len(y)))
+#   st.subheader('Значения исходного временного ряда')
+#   st.dataframe(np.array(y).reshape(1, len(y)))
   
-  st.subheader('График временного ряда')
+#   st.subheader('График временного ряда')
   ax = plt.plot(list(range(len(y))), y)
   _ = plt.title("График временного ряда")
   st.pyplot()
-
-#   fig = plt.figure(figsize=(5,5))
-#   _ = plt.plot(list(range(len(y))), y)
-#   _ = plt.title("График временного ряда")
-#   st.pyplot(fig)
 
 st.header('**2) Задайте параметры модели**')
 k = st.slider("Степень полинома (k)", min_value=1, max_value=10, value=3, step=1)
