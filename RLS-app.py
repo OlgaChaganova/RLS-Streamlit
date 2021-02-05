@@ -6,6 +6,8 @@ import math
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+from sklearn.metrics import mean_squared_error, mean_absolute_error, max_error
+
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 class RLS:
@@ -136,6 +138,14 @@ if st.button('Составить прогноз'):
     _ = plt.title("Ошибки модели")
     plt.legend()
     st.pyplot()
+    
+    st.subheader('Метрики качества прогноза')
+    metrics = pd.DataFrame({'Accuracy' : round(clf.score(X_test, y_test), 5),
+            'Precision' : round(precision_score(y_test, y_pred), 5),
+            'Recall' : round(recall_score(y_test, y_pred), 5),
+            'F-мера' : round(f1_score(y_test, y_pred), 5)}, index=['Значение'])
+
+  st.table(metrics)
     
     st.subheader('**Коэффициенты модели**')
     coeff = list(float(LS.w[i]) for i in range(len(LS.w)))
