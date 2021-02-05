@@ -148,8 +148,8 @@ if st.button('Составить прогноз'):
     st.table(metrics)
     st.write('*MSE (Mean Square Error)* - средняя квадратическая ошибка;')
     st.write('*RMSE (Root Mean Square Error)* - корень из средней квадратической ошибки;')
-    st.write('*ME (Max Error)* - максимальная ошибка';)
-    st.write('*MAE (Mean Absolute Error)* - средняя абсолютная ошибка')
+    st.write('*ME (Max Error)* - максимальная ошибка;')
+    st.write('*MAE (Mean Absolute Error)* - средняя абсолютная ошибка.')
     
     st.subheader('**Коэффициенты модели**')
     coeff = list(float(LS.w[i]) for i in range(len(LS.w)))
