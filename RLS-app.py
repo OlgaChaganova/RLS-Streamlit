@@ -143,7 +143,7 @@ if st.button('Составить прогноз'):
     metrics = pd.DataFrame({'MSE' : round(mean_squared_error(y, pred_y), 5),
                             'RMSE' : round(mean_squared_error(y, pred_y)**0.5, 5),
                             'ME' : round(max_error(y, pred_y), 5),          
-                            'MAE' : round(mean_absolute_error(y, pred_y), 5))
+                            'MAE' : round(mean_absolute_error(y, pred_y), 5)}, index=['Значение'])
 
     st.table(metrics)
     
