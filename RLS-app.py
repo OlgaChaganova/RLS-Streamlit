@@ -140,12 +140,12 @@ if st.button('Составить прогноз'):
     st.pyplot()
     
     st.subheader('Метрики качества прогноза')
-    metrics = pd.DataFrame({'Accuracy' : round(clf.score(X_test, y_test), 5),
-            'Precision' : round(precision_score(y_test, y_pred), 5),
-            'Recall' : round(recall_score(y_test, y_pred), 5),
-            'F-мера' : round(f1_score(y_test, y_pred), 5)}, index=['Значение'])
+    metrics = pd.DataFrame({'MSE' : round(mean_squared_error(y, pred_y), 5),
+                            'RMSE' : round(mean_squared_error(y, pred_y)**0.5, 5)
+                            'ME' : round(max_error(y, pred_y), 5),          
+                            'MAE' : round(mean_absolute_error(y, pred_y), 5))
 
-  st.table(metrics)
+    st.table(metrics)
     
     st.subheader('**Коэффициенты модели**')
     coeff = list(float(LS.w[i]) for i in range(len(LS.w)))
