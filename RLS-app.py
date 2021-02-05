@@ -106,7 +106,7 @@ if uploaded_file is not None:
 #   _ = plt.title("График временного ряда")
 #   st.pyplot()
 
-  fig = plt.figure(figsize=(6, 4))
+  fig = plt.figure(figsize=(3,2))
   _ = plt.plot(list(range(len(y))), y)
   _ = plt.title("График временного ряда")
   st.pyplot(fig)
