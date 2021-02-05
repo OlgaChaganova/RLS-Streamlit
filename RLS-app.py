@@ -102,10 +102,14 @@ if uploaded_file is not None:
   st.dataframe(np.array(y).reshape(1, len(y)))
   
 #   st.subheader('График временного ряда')
-  ax = plt.plot(list(range(len(y))), y)
-  _ = plt.title("График временного ряда")
-  st.pyplot()
+#   ax = plt.plot(list(range(len(y))), y)
+#   _ = plt.title("График временного ряда")
+#   st.pyplot()
 
+  fig = plt.figure(figsize=(6, 4))
+  _ = plt.plot(list(range(len(y))), y)
+  _ = plt.title("График временного ряда")
+  st.pyplot(fig)
 
 st.header('**2) Задайте параметры модели**')
 k = st.slider("Степень полинома (k)", min_value=1, max_value=10, value=3, step=1)
