@@ -1,2 +1,2 @@
 # RLS-Streamlit
-Web-application to RLS-estimation and time-series forecasting
+Web-application for time-series forecasting with recursive least squares.
