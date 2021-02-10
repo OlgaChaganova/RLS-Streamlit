@@ -112,8 +112,8 @@ lam = st.number_input('Значение коэффициента адаптац�
 num_obs = st.number_input('Число последних наблюдений, отображаемых на графике', min_value=0, max_value=test_size, value=5)
 delta = 10
 st.header('**3) Прогнозирование**')
-if st.button('Составить прогноз'):
-
+if (st.button('Составить прогноз')) && (uploaded_file is not None):
+    
     LS = RLS(k, lam, delta)
     pred_x = []
     pred_y = []
