@@ -112,7 +112,6 @@ lam = st.number_input('Значение коэффициента адаптац�
 num_obs = st.number_input('Число последних наблюдений, отображаемых на графике', min_value=0, max_value=test_size, value=5)
 delta = 10
 st.header('**3) Прогнозирование**')
-m = st.slider("Длина горизонта прогнозирования", min_value=1, max_value=test_size//3, value=3, step=1)
 if st.button('Составить прогноз'):
 
     LS = RLS(k, lam, delta)
@@ -132,6 +131,14 @@ if st.button('Составить прогноз'):
     _ = plt.title("Прогнозирование с помощью РМНК")
     plt.legend()
     st.pyplot()
+    
+    st.subheader('Прогнозное значение на один шаг вперед')
+    
+    x = np.matrix(np.zeros((1,k)))
+    for j in range(k):
+        x[0,j] = (test_size)**j 
+    
+    st.write(float(x*LS.w))
     
     ax2 = plt.plot(pred_x[-num_obs:], pred_error[-num_obs:])
     _ = plt.title("Ошибки модели")
